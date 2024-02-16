@@ -38,8 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
+    #3rd party
+    'compressor',
+    'widget_tweaks',
+    
     #my apps
-    'accounts'
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -57,7 +61,9 @@ ROOT_URLCONF = 'custom_user_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / 'templates',
+            ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -127,3 +133,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # new
 AUTH_USER_MODEL = "accounts.CustomUser"
+
+# FLOWBITE
+COMPRESS_ROOT = BASE_DIR / 'static'
+COMPRESS_ENABLED = True
+STATICFILES_FINDERS = ('django.contrib.staticfiles.finders.AppDirectoriesFinder' ,'compressor.finders.CompressorFinder',)
+
+LOGIN_REDIRECT_URL = "home"
+LOGOUT_REDIRECT_URL = "home"

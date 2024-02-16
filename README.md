@@ -34,11 +34,9 @@ Start-up - python manage.py runserver
 
 ## Tests
 
-Django.test
+No tests
 
-Tests location - django-snacks/snacks/tests.py
+## Notes
 
-Tests pass create, update, and delete
-
-Run tests - python manage.py test
+Login and Signup pages are styled using Flowbite. Home page is not styled but works.
 
